@@ -18,4 +18,4 @@ const vehicleSchema = new mongoose.Schema({
 })
 
 const Vehicle = mongoose.Model("Vehicle",vehicleSchema)
-module.exports = {Vehicle};
+module.exports = Vehicle;
