@@ -15,4 +15,4 @@ const mapSchema = new mongoose.Schema({
 
 const Map = mongoose.model("Map", mapSchema);
 
-module.exports = { Map };
+module.exports = Map;
