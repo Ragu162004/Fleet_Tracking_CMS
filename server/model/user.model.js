@@ -16,10 +16,12 @@ const userSchema = new mongoose.Schema({
   role: {
     type: String,
     enum: ["admin", "driver"],
+    default: "driver",
   },
   vehicleId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Vehicle",
+    unique: true,
   },
 });
 
