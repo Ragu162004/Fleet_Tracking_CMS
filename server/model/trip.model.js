@@ -24,7 +24,6 @@ const tripSchema = new mongoose(
     },
     NoOfDays: {
       type: Number,
-      default: 1,
     },
     startedAt: {
       type: Date,
