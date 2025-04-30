@@ -7,7 +7,7 @@
 - name
 - email
 - password
-- role (Admin, Manager, Driver)
+- role (Admin, Driver)
 
 #### **Vehicles**
 - vehicle_id (PK)
