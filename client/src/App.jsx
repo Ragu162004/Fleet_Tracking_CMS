@@ -1,10 +1,11 @@
 import React from 'react'
-import Footer from './components/common/footer.jsx'
+import AppRoutes from './routes/app-routes'
 
 const App = () => {
   return (
-    //<div>App</div>
-    <Footer/>
+    <div className='font-display'>
+      <AppRoutes/>
+    </div>
   )
 }
 
