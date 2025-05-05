@@ -1,6 +1,5 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 .font-display {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-  
