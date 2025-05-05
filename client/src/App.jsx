@@ -3,7 +3,9 @@ import AppRoutes from './routes/app-routes'
 
 const App = () => {
   return (
-    <AppRoutes/>
+    <div className='font-display'>
+      <AppRoutes/>
+    </div>
   )
 }
 
