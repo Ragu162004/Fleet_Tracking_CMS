@@ -122,6 +122,7 @@ const getMe = (req, res) => {
   res.status(200).json({
     message: "Authorized User.",
     status: true,
+    status: true,
     user,
   });
 };
