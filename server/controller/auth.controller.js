@@ -5,12 +5,12 @@ const User = require("../../model/user.model");
 const CryptoJS = require("crypto-js");
 
 const register = async (req, res) => {
-  const { username, fullname, email, password } = req.body;
+  const { username, email, password } = req.body;
   try {
-    if (!username || !fullname || !email || !password) {
+    if (!username || !email || !password) {
       res.status(400).json({
         message: "All fields are required",
-        success: false,
+        status: false,
       });
     }
 
@@ -18,27 +18,26 @@ const register = async (req, res) => {
     if (!user) {
       res.status(409).json({
         message: "User Already Exist",
-        success: false,
+        status: false,
       });
     }
 
     const hashedPassword = await bcrypt.hash(password, 12);
     const newUser = new User({
       username,
-      fullname,
       email,
       password: hashedPassword,
     });
 
     await newUser.save();
     res.status(201).json({
-      message: "Registeration Successfull",
-      success: true,
+      message: "Registeration successfull",
+      status: true,
     });
   } catch (error) {
     res.status(500).json({
       message: `Error Occured in Register Controller ${error}`,
-      success: false,
+      status: false,
     });
   }
 };
@@ -49,7 +48,7 @@ const login = async (req, res) => {
     if (!email || !password) {
       res.status(400).json({
         message: "All fields are required",
-        success: false,
+        status: false,
       });
     }
 
@@ -58,7 +57,7 @@ const login = async (req, res) => {
     if (!user) {
       res.json({
         message: "User doesn't exist. Please try Sign up first.",
-        success: false,
+        status: false,
       });
     }
 
@@ -67,7 +66,7 @@ const login = async (req, res) => {
     if (!checkPassword) {
       res.json({
         message: "Invalid Credentials",
-        success: false,
+        status: false,
       });
     }
 
@@ -94,8 +93,8 @@ const login = async (req, res) => {
         secure: false,
       })
       .json({
-        message: "Login Successfull",
-        success: true,
+        message: "Login successfull",
+        status: true,
         user: {
           id: user._id,
           email: user.email,
@@ -105,15 +104,15 @@ const login = async (req, res) => {
   } catch (error) {
     res.status(500).json({
       message: `Error Occured in Login Controller: ${error}`,
-      success: false,
+      status: false,
     });
   }
 };
 
 const logout = (req, res) => {
   res.clearCookie("token").json({
-    message: "Logged Out Successfully",
-    success: true,
+    message: "Logged Out successfully",
+    status: true,
   });
 };
 
@@ -122,9 +121,10 @@ const getMe = (req, res) => {
   console.log(user);
   res.status(200).json({
     message: "Authorized User.",
-    success: true,
+    status: true,
     user,
   });
 };
 
 module.exports = { register, login, logout, getMe };
+
