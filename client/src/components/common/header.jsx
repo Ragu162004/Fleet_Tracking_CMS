@@ -11,10 +11,10 @@ const Header = () => {
                 <p className='text-2xl'></p>
             </div>
             <ul className='flex gap-8'>
-                <li>home</li>
-                <li>track</li>
-                <li>about</li>
-                <li>contact us</li>
+                <Link to={"/"}><li>home</li></Link>
+                <Link to={"/track"}><li>track</li></Link>
+                <Link to={"/about"}><li>about</li></Link>
+                <Link to={"/contact-us"}><li>contact us</li></Link>
             </ul>
             <Link className='px-4 py-2 outline-2 hover:bg-fuchsia-50 hover:text-black rounded-[10px]'>Login</Link>
         </div>
