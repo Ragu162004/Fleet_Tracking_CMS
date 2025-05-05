@@ -5,9 +5,9 @@ const User = require("../../model/user.model");
 const CryptoJS = require("crypto-js");
 
 const register = async (req, res) => {
-  const { username, fullname, email, password } = req.body;
+  const { username, email, password } = req.body;
   try {
-    if (!username || !fullname || !email || !password) {
+    if (!username || !email || !password) {
       res.status(400).json({
         message: "All fields are required",
         success: false,
@@ -25,7 +25,6 @@ const register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 12);
     const newUser = new User({
       username,
-      fullname,
       email,
       password: hashedPassword,
     });
